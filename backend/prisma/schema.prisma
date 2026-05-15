@@ -32,25 +32,25 @@ model Program {
 }
 
 model Block {
-  id         String         @id @default(uuid())
-  programId  String         @map("program_id")
+  id         String          @id @default(uuid())
+  programId  String          @map("program_id")
   name       String
   focus      String?
-  orderIndex Int            @default(0) @map("order_index")
-  program    Program        @relation(fields: [programId], references: [id], onDelete: Cascade)
+  orderIndex Int             @default(0) @map("order_index")
+  program    Program         @relation(fields: [programId], references: [id], onDelete: Cascade)
   exercises  BlockExercise[]
 
   @@map("blocks")
 }
 
 model Exercise {
-  id           String         @id @default(uuid())
+  id           String          @id @default(uuid())
   name         String
-  muscleGroup  String?        @map("muscle_group")
+  muscleGroup  String?         @map("muscle_group")
   equipment    String?
   difficulty   String?
   instructions String?
-  videoUrl     String?        @map("video_url")
+  videoUrl     String?         @map("video_url")
   blocks       BlockExercise[]
 
   @@map("exercises")

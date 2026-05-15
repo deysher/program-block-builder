@@ -1,5 +1,4 @@
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+const prisma = require('../lib/prisma');
 
 exports.getExercises = async (req, res) => {
   const { search, muscle_group, equipment, difficulty, page = 1, limit = 20 } = req.query;
