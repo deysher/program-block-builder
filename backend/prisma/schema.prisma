@@ -1,0 +1,71 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Trainer {
+  id           String    @id @default(uuid())
+  name         String
+  email        String    @unique
+  passwordHash String    @map("password_hash")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  programs     Program[]
+
+  @@map("trainers")
+}
+
+model Program {
+  id            String   @id @default(uuid())
+  trainerId     String   @map("trainer_id")
+  name          String
+  description   String?
+  durationWeeks Int?     @map("duration_weeks")
+  createdAt     DateTime @default(now()) @map("created_at")
+  trainer       Trainer  @relation(fields: [trainerId], references: [id], onDelete: Cascade)
+  blocks        Block[]
+
+  @@map("programs")
+}
+
+model Block {
+  id         String         @id @default(uuid())
+  programId  String         @map("program_id")
+  name       String
+  focus      String?
+  orderIndex Int            @default(0) @map("order_index")
+  program    Program        @relation(fields: [programId], references: [id], onDelete: Cascade)
+  exercises  BlockExercise[]
+
+  @@map("blocks")
+}
+
+model Exercise {
+  id           String         @id @default(uuid())
+  name         String
+  muscleGroup  String?        @map("muscle_group")
+  equipment    String?
+  difficulty   String?
+  instructions String?
+  videoUrl     String?        @map("video_url")
+  blocks       BlockExercise[]
+
+  @@map("exercises")
+}
+
+model BlockExercise {
+  id         String   @id @default(uuid())
+  blockId    String   @map("block_id")
+  exerciseId String   @map("exercise_id")
+  sets       Int      @default(3)
+  reps       Int      @default(10)
+  notes      String?
+  orderIndex Int      @default(0) @map("order_index")
+  block      Block    @relation(fields: [blockId], references: [id], onDelete: Cascade)
+  exercise   Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+
+  @@map("block_exercises")
+}
