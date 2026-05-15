@@ -1,0 +1,16 @@
+INSERT INTO exercises (name, muscle_group, equipment, difficulty, instructions) VALUES
+('Barbell Back Squat', 'legs', 'barbell', 'intermediate', 'Stand with feet shoulder-width apart, bar resting on upper traps. Descend until thighs are parallel to floor, then drive back up.'),
+('Deadlift', 'back', 'barbell', 'intermediate', 'Stand with feet hip-width apart, grip bar just outside legs. Keep back flat, drive hips forward to stand.'),
+('Bench Press', 'chest', 'barbell', 'intermediate', 'Lie flat, grip bar slightly wider than shoulder-width. Lower to chest, press back up.'),
+('Pull Up', 'back', 'bodyweight', 'intermediate', 'Hang from bar with overhand grip. Pull chest to bar, lower with control.'),
+('Push Up', 'chest', 'bodyweight', 'beginner', 'Start in plank position. Lower chest to floor, press back up keeping core tight.'),
+('Dumbbell Shoulder Press', 'shoulders', 'dumbbell', 'beginner', 'Sit upright, dumbbells at shoulder height. Press overhead until arms are extended.'),
+('Romanian Deadlift', 'legs', 'barbell', 'intermediate', 'Hold bar at hip level, hinge forward keeping back flat until you feel hamstring stretch, return to standing.'),
+('Barbell Row', 'back', 'barbell', 'intermediate', 'Hinge forward 45 degrees, pull bar to lower chest, squeeze shoulder blades together.'),
+('Dumbbell Curl', 'arms', 'dumbbell', 'beginner', 'Stand with dumbbells at sides, curl to shoulder height keeping elbows fixed.'),
+('Tricep Pushdown', 'arms', 'cable', 'beginner', 'Stand at cable machine, push bar down until arms are fully extended, control the return.'),
+('Leg Press', 'legs', 'machine', 'beginner', 'Sit in machine, feet shoulder-width on platform. Lower until 90 degrees, press back up.'),
+('Lat Pulldown', 'back', 'cable', 'beginner', 'Sit at machine, pull bar to upper chest, squeeze lats, control return.'),
+('Plank', 'core', 'bodyweight', 'beginner', 'Hold forearm plank position with straight body line, brace core throughout.'),
+('Dumbbell Lunges', 'legs', 'dumbbell', 'beginner', 'Step forward, lower back knee toward floor, push back to start. Alternate legs.'),
+('Incline Bench Press', 'chest', 'barbell', 'intermediate', 'Set bench to 30-45 degrees. Press bar from upper chest upward.');
