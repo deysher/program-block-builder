@@ -11,7 +11,8 @@ app.use(express.json());
 app.use('/v1/auth', require('./routes/auth'));
 app.use('/v1/exercises', require('./routes/exercises'));
 app.use('/v1/programs', require('./routes/programs'));
-app.use('/v1/blocks', require('./routes/blocks'));
+app.use('/v1/programs', require('./routes/blocks'));
+app.use('/v1/blocks', require('./routes/blockExercises'));
 
 // Health check
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
