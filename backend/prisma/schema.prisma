@@ -57,15 +57,16 @@ model Exercise {
 }
 
 model BlockExercise {
-  id         String   @id @default(uuid())
-  blockId    String   @map("block_id")
-  exerciseId String   @map("exercise_id")
-  sets       Int      @default(3)
-  reps       Int      @default(10)
-  notes      String?
-  orderIndex Int      @default(0) @map("order_index")
-  block      Block    @relation(fields: [blockId], references: [id], onDelete: Cascade)
-  exercise   Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
+  id             String   @id @default(uuid())
+  blockId        String   @map("block_id")
+  exerciseId     String   @map("exercise_id")
+  sets           Int      @default(3)
+  reps           Int      @default(10)
+  notes          String?
+  orderIndex     Int      @default(0) @map("order_index")
+  supersetGroup  String?  @map("superset_group")
+  block          Block    @relation(fields: [blockId], references: [id], onDelete: Cascade)
+  exercise       Exercise @relation(fields: [exerciseId], references: [id], onDelete: Cascade)
 
   @@map("block_exercises")
 }
